@@ -49,8 +49,10 @@ async function main() {
 
   const release = await res.json();
 
+  const version = release.tag_name || '';
+
   const data = {
-    version: release.tag_name || '',
+    version,
     name: release.name || '',
     publishedAt: release.published_at || '',
     htmlUrl: release.html_url || '',
@@ -60,7 +62,9 @@ async function main() {
       size: asset.size,
       downloadCount: asset.download_count,
       githubUrl: asset.browser_download_url,
-      mirrorUrl: isDownloadableBinary(asset.name) ? `${COS_BASE_URL}/${asset.name}` : '',
+      mirrorUrl: isDownloadableBinary(asset.name) && version
+        ? `${COS_BASE_URL}/releases/${version}/${asset.name}`
+        : '',
       platform: inferPlatform(asset.name),
     })),
     syncedAt: new Date().toISOString(),
