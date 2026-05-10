@@ -21,29 +21,52 @@ The authoritative specification for all content, structure, and design decisions
 ## Commands
 
 ```bash
-pnpm dev          # Start dev server
-pnpm build        # Build static site
-pnpm preview      # Preview production build
-pnpm lint         # ESLint
-pnpm typecheck    # astro check
+pnpm dev           # Start dev server
+pnpm build         # Build static site
+pnpm preview       # Preview production build
+pnpm typecheck     # astro check (type-check .astro, .ts, .tsx)
+pnpm sync-release  # Fetch latest MAI release and update releases.generated.json
 ```
 
-## Directory Structure
+> There is no ESLint config at the repo root — `pnpm lint` will fail. Use `pnpm typecheck` instead.
+
+## Architecture
+
+### Page structure
+
+`src/pages/index.astro` is the only page — a single-page marketing site. All sections are composed there in order. `SiteShell.astro` wraps every page and provides the HTML shell with SEO meta tags, canonical URL, OG/Twitter cards, and Header/Footer.
+
+### Component conventions
+
+All UI is Astro components except `DownloadSection.tsx`, which is the sole React island. It's loaded with `client:visible` so it hydrates only when scrolled into view. It dynamically imports `releases.generated.json` on the client to render download links with mirror/GitHub fallback.
+
+### Data flow for downloads
+
+1. `scripts/sync-release.mjs` fetches GitHub API → writes `src/data/releases.generated.json`
+2. The JSON is committed to git by the `sync-release.yml` workflow (runs every 6 hours, on `workflow_dispatch`, or via `repository_dispatch` type `mai-release` triggered from the main MAI repo on release)
+3. `DownloadSection.tsx` reads the JSON at runtime; `mirrorUrl` points to Tencent COS, `githubUrl` is the fallback
+
+**Env vars for `sync-release.mjs`:**
+- `GITHUB_TOKEN` — optional, increases API rate limit
+- `MAI_REPO` — default `Astroite/MAI`
+- `COS_BASE_URL` — default `https://agent-mai-1255740528.cos.accelerate.myqcloud.com`
+
+### Key files
 
 ```
 src/
-  assets/brand/, illustrations/
-  components/layout/, sections/, ui/
-  data/             # features.ts, nav.ts, releases.generated.json
-  lib/              # release.ts, constants.ts
-  pages/            # index.astro, download.astro, privacy.astro, changelog.astro
-  styles/           # globals.css, tokens.css
-public/
-  favicon.svg, og/, screenshots/, downloads/
+  lib/constants.ts          # SITE_URL, GITHUB_URL, titles
+  lib/release.ts            # ReleaseData / ReleaseAsset types, helper formatters
+  data/releases.generated.json  # auto-generated, committed to git
+  data/features.ts          # features grid content
+  data/nav.ts               # navigation items
+  components/layout/SiteShell.astro  # page shell (SEO, header, footer)
+  components/sections/DownloadSection.tsx  # only React island
+  styles/tokens.css         # all CSS custom properties (--mai-* vars)
 scripts/
-  sync-release.mjs, mirror-release-assets.mjs
+  sync-release.mjs          # release fetch + write script
 .github/workflows/
-  sync-release.yml
+  sync-release.yml          # scheduled + dispatch workflow
 ```
 
 ## Design System
