@@ -2,6 +2,8 @@ name: Sync MAI Release
 
 on:
   workflow_dispatch:
+  repository_dispatch:
+    types: [mai-release]
   schedule:
     - cron: "0 */6 * * *"
 
