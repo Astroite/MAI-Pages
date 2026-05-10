@@ -29,16 +29,17 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Sync latest release metadata
+      - name: Sync latest release metadata & download binaries
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           MAI_REPO: Astroite/MAI
+          SITE_URL: https://mai.astroite.com
         run: node scripts/sync-release.mjs
 
-      - name: Commit generated release data
+      - name: Commit generated release data & binaries
         run: |
           git config user.name "mai-release-bot"
           git config user.email "actions@github.com"
-          git add src/data/releases.generated.json || true
+          git add src/data/releases.generated.json public/downloads/ || true
           git diff --cached --quiet || git commit -m "chore: sync MAI latest release"
           git push

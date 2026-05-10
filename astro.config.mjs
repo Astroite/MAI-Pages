@@ -3,7 +3,7 @@ import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://mai.pages.edgeone.ai',
+  site: 'https://mai.astroite.com',
   integrations: [react(), sitemap()],
   output: 'static',
 });
