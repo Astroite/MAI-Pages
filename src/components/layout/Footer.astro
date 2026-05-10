@@ -1,0 +1,73 @@
+---
+import { GITHUB_URL } from '../../lib/constants';
+---
+
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__brand">
+      <span class="footer__logo">MAI</span>
+      <p class="footer__tagline">本地优先的 AI 故事导演台</p>
+    </div>
+    <div class="footer__links">
+      <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href={GITHUB_URL + '/releases'} target="_blank" rel="noopener noreferrer">Releases</a>
+      <a href="#download">下载</a>
+    </div>
+    <p class="footer__copy">
+      &copy; {new Date().getFullYear()} MAI &middot; Apache License 2.0
+    </p>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    border-top: 1px solid var(--mai-border);
+    background: var(--mai-surface);
+    padding: 2.5rem 0;
+    margin-top: 4rem;
+  }
+
+  .footer__inner {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+    text-align: center;
+  }
+
+  .footer__logo {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--mai-text);
+  }
+
+  .footer__tagline {
+    font-size: 0.85rem;
+    color: var(--mai-text-soft);
+    margin-top: 0.2rem;
+  }
+
+  .footer__links {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .footer__links a {
+    font-size: 0.85rem;
+    color: var(--mai-text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer__links a:hover {
+    color: var(--mai-mint);
+  }
+
+  .footer__copy {
+    font-size: 0.8rem;
+    color: var(--mai-text-soft);
+  }
+</style>

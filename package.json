@@ -1,0 +1,25 @@
+{
+  "name": "mai-pages",
+  "type": "module",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "lint": "eslint .",
+    "typecheck": "astro check",
+    "sync-release": "node scripts/sync-release.mjs"
+  },
+  "dependencies": {
+    "astro": "^5.7.10",
+    "lucide-react": "^0.511.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.4",
+    "@astrojs/react": "^4.3.0",
+    "@astrojs/sitemap": "^3.4.0",
+    "typescript": "^5.8.3"
+  }
+}

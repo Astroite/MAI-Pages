@@ -1,0 +1,22 @@
+---
+import SiteShell from '../components/layout/SiteShell.astro';
+import HeroSection from '../components/sections/HeroSection.astro';
+import StoryWorldSection from '../components/sections/StoryWorldSection.astro';
+import StoryModeSection from '../components/sections/StoryModeSection.astro';
+import DiscussionRoomSection from '../components/sections/DiscussionRoomSection.astro';
+import FeaturesGrid from '../components/sections/FeaturesGrid.astro';
+import OpenSourceSection from '../components/sections/OpenSourceSection.astro';
+import DownloadSection from '../components/sections/DownloadSection';
+import FaqSection from '../components/sections/FaqSection.astro';
+---
+
+<SiteShell>
+  <HeroSection />
+  <StoryWorldSection />
+  <StoryModeSection />
+  <DiscussionRoomSection />
+  <FeaturesGrid />
+  <OpenSourceSection />
+  <DownloadSection client:visible />
+  <FaqSection />
+</SiteShell>

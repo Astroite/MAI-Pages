@@ -1,0 +1,146 @@
+---
+import SectionHeader from '../ui/SectionHeader.astro';
+
+const points = [
+  '多角色持续接力',
+  '用户可随时喊停',
+  'AI 保持角色身份',
+  '用户可以作为导演旁白',
+  '用户也可以扮演自己的角色入场',
+  '支持沉默、试探、冲突、承诺等自然互动',
+];
+---
+
+<section class="sm" id="story-mode">
+  <div class="sm__inner">
+    <SectionHeader
+      title="不是让 AI 续写，而是让角色共同演出"
+      subtitle="在故事模式中，每个 AI 只扮演自己。它会说自己的台词，描述自己的动作，保持自己的身份和关系，不替其他角色发言，也不会变成全知旁白。"
+    />
+
+    <div class="sm__grid">
+      <div class="sm__features">
+        {points.map((p) => (
+          <div class="sm__item">
+            <span class="sm__check">&#10003;</span>
+            <span>{p}</span>
+          </div>
+        ))}
+      </div>
+      <div class="sm__visual">
+        <div class="chat-demo">
+          <div class="chat-demo__msg chat-demo__msg--ranger">
+            <span class="chat-demo__name" style="color: var(--mai-mint);">游侠</span>
+            「我听见林中有动静。你们留在这里，我去看看。」
+          </div>
+          <div class="chat-demo__msg chat-demo__msg--mage">
+            <span class="chat-demo__name" style="color: var(--mai-blue);">法师</span>
+            「等等，让我先施一个侦测术。」
+          </div>
+          <div class="chat-demo__msg chat-demo__msg--narrator">
+            <span class="chat-demo__name" style="color: var(--mai-coral);">旁白</span>
+            魔法的光芒在林间扩散，隐约照出一个身影。
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .sm {
+    padding: 5rem 0;
+    background: var(--mai-surface);
+  }
+
+  .sm__inner {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .sm__grid {
+    display: flex;
+    gap: 3rem;
+    align-items: flex-start;
+  }
+
+  .sm__features {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .sm__item {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.95rem;
+    color: var(--mai-text);
+  }
+
+  .sm__check {
+    color: var(--mai-mint);
+    font-weight: 700;
+    font-size: 0.85rem;
+    width: 22px;
+    height: 22px;
+    background: var(--mai-mint-soft);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .sm__visual {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .chat-demo {
+    background: var(--mai-bg);
+    border: 1px solid var(--mai-border);
+    border-radius: var(--mai-radius-lg);
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    box-shadow: var(--mai-shadow-sm);
+  }
+
+  .chat-demo__msg {
+    font-size: 0.88rem;
+    line-height: 1.6;
+    color: var(--mai-text);
+    padding: 0.6rem 0.8rem;
+    border-radius: var(--mai-radius-sm);
+    background: var(--mai-surface);
+    border-left: 3px solid var(--mai-border);
+  }
+
+  .chat-demo__msg--ranger {
+    border-left-color: var(--mai-mint);
+  }
+
+  .chat-demo__msg--mage {
+    border-left-color: var(--mai-blue);
+  }
+
+  .chat-demo__msg--narrator {
+    border-left-color: var(--mai-coral);
+    background: var(--mai-coral-soft);
+  }
+
+  .chat-demo__name {
+    font-weight: 600;
+    margin-right: 0.4rem;
+  }
+
+  @media (max-width: 768px) {
+    .sm__grid {
+      flex-direction: column;
+    }
+  }
+</style>

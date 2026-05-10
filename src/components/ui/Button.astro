@@ -1,0 +1,80 @@
+---
+interface Props {
+  href?: string;
+  variant?: 'primary' | 'outline' | 'ghost';
+  size?: 'sm' | 'md' | 'lg';
+  target?: string;
+  class?: string;
+}
+
+const { href, variant = 'primary', size = 'md', target, class: className = '' } = Astro.props;
+const Tag = href ? 'a' : 'button';
+---
+
+<Tag
+  href={href}
+  target={target}
+  class:list={['btn', `btn--${variant}`, `btn--${size}`, className]}
+>
+  <slot />
+</Tag>
+
+<style>
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-weight: 500;
+    border-radius: var(--mai-radius);
+    transition: all 0.2s;
+    white-space: nowrap;
+    text-decoration: none;
+  }
+
+  .btn--sm {
+    padding: 0.4rem 0.9rem;
+    font-size: 0.85rem;
+  }
+
+  .btn--md {
+    padding: 0.6rem 1.4rem;
+    font-size: 0.95rem;
+  }
+
+  .btn--lg {
+    padding: 0.75rem 1.8rem;
+    font-size: 1rem;
+  }
+
+  .btn--primary {
+    background: var(--mai-mint);
+    color: #fff;
+  }
+
+  .btn--primary:hover {
+    background: var(--mai-mint-strong);
+    color: #fff;
+  }
+
+  .btn--outline {
+    background: transparent;
+    color: var(--mai-mint);
+    border: 1.5px solid var(--mai-mint);
+  }
+
+  .btn--outline:hover {
+    background: var(--mai-mint-soft);
+    color: var(--mai-mint-strong);
+  }
+
+  .btn--ghost {
+    background: transparent;
+    color: var(--mai-text-muted);
+  }
+
+  .btn--ghost:hover {
+    background: var(--mai-surface-soft);
+    color: var(--mai-text);
+  }
+</style>

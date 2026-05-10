@@ -1,0 +1,65 @@
+---
+interface Props {
+  icon: string;
+  title: string;
+  description: string;
+  color?: 'mint' | 'blue';
+}
+
+const { icon, title, description, color = 'mint' } = Astro.props;
+---
+
+<div class:list={['feature-card', `feature-card--${color}`]}>
+  <div class="feature-card__icon" set:html={icon} />
+  <h3 class="feature-card__title">{title}</h3>
+  <p class="feature-card__desc">{description}</p>
+</div>
+
+<style>
+  .feature-card {
+    background: var(--mai-surface);
+    border: 1px solid var(--mai-border);
+    border-radius: var(--mai-radius);
+    padding: 1.5rem;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+
+  .feature-card:hover {
+    box-shadow: var(--mai-shadow-card);
+    transform: translateY(-2px);
+  }
+
+  .feature-card__icon {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--mai-radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+  }
+
+  .feature-card--mint .feature-card__icon {
+    background: var(--mai-mint-soft);
+    color: var(--mai-mint);
+  }
+
+  .feature-card--blue .feature-card__icon {
+    background: var(--mai-blue-soft);
+    color: var(--mai-blue);
+  }
+
+  .feature-card__title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--mai-text);
+    margin-bottom: 0.5rem;
+  }
+
+  .feature-card__desc {
+    font-size: 0.9rem;
+    color: var(--mai-text-muted);
+    line-height: 1.6;
+  }
+</style>

@@ -1,0 +1,128 @@
+---
+import SectionHeader from '../ui/SectionHeader.astro';
+
+const capabilities = [
+  { icon: '🤖', label: '多模型 / 多人设协作' },
+  { icon: '📋', label: '阶段模板' },
+  { icon: '🏆', label: '赛制' },
+  { icon: '🧪', label: '配方' },
+  { icon: '📝', label: '书记官 Scribe' },
+  { icon: '🎙️', label: '主持 Facilitator' },
+  { icon: '⚖️', label: '裁决 Judge' },
+  { icon: '🔀', label: '子讨论' },
+  { icon: '🔧', label: '工具与 MCP' },
+  { icon: '📖', label: 'Append-only 可追溯记录' },
+];
+
+const scenarios = [
+  '技术方案评审',
+  '产品决策圆桌',
+  '发散头脑风暴',
+  '假设压力测试',
+  '角色原型访谈',
+];
+---
+
+<section class="dr" id="discussion-room">
+  <div class="dr__inner">
+    <SectionHeader
+      title="当你需要判断，不只问一个 AI"
+      subtitle="MAI 的讨论室让多个 AI 人设进入同一个问题现场。它们共享上下文，按阶段和赛制发言、质询、反驳和总结。用户始终拥有冻结、推进、裁决和配置模型的最终控制权。"
+    />
+
+    <div class="dr__layout">
+      <div class="dr__capabilities">
+        {capabilities.map((c) => (
+          <div class="dr__cap">
+            <span class="dr__cap-icon">{c.icon}</span>
+            <span class="dr__cap-label">{c.label}</span>
+          </div>
+        ))}
+      </div>
+
+      <div class="dr__scenarios">
+        <h3 class="dr__scenarios-title">适用场景</h3>
+        <div class="dr__scenario-list">
+          {scenarios.map((s) => (
+            <span class="dr__scenario-tag">{s}</span>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .dr {
+    padding: 5rem 0;
+  }
+
+  .dr__inner {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .dr__layout {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  .dr__capabilities {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 0.75rem;
+  }
+
+  .dr__cap {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: var(--mai-surface);
+    border: 1px solid var(--mai-border);
+    border-radius: var(--mai-radius);
+    padding: 0.75rem 1rem;
+    transition: box-shadow 0.2s;
+  }
+
+  .dr__cap:hover {
+    box-shadow: var(--mai-shadow-sm);
+  }
+
+  .dr__cap-icon {
+    font-size: 1.1rem;
+  }
+
+  .dr__cap-label {
+    font-size: 0.88rem;
+    color: var(--mai-text);
+  }
+
+  .dr__scenarios {
+    text-align: center;
+  }
+
+  .dr__scenarios-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--mai-text);
+    margin-bottom: 1rem;
+  }
+
+  .dr__scenario-list {
+    display: flex;
+    justify-content: center;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+  }
+
+  .dr__scenario-tag {
+    background: var(--mai-blue-soft);
+    color: #2a7fa8;
+    padding: 0.4rem 1rem;
+    border-radius: 999px;
+    font-size: 0.82rem;
+    font-weight: 500;
+  }
+</style>

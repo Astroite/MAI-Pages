@@ -1,0 +1,114 @@
+---
+import SectionHeader from '../ui/SectionHeader.astro';
+
+const faqs = [
+  {
+    q: 'MAI 是在线服务吗？',
+    a: '不是。MAI 是一个本地优先的应用，你可以在自己的电脑上运行，数据默认存储在本地 SQLite 中。',
+  },
+  {
+    q: 'MAI 支持哪些模型？',
+    a: 'MAI 支持 OpenAI、Anthropic、Gemini、OpenRouter 等主流模型供应商，也可以通过 LiteLLM 接入自定义模型。',
+  },
+  {
+    q: '故事世界和普通讨论室有什么区别？',
+    a: '故事世界专注于持续性的叙事创作，拥有世界观、角色、场景和跨场景记忆；讨论室则用于多模型协作讨论、方案评审和决策推演。',
+  },
+  {
+    q: 'AI 会不会替其他角色说话？',
+    a: '在故事模式中，每个 AI 只扮演自己的角色，说自己的台词，描述自己的动作，不会替其他角色发言，也不会变成全知旁白。',
+  },
+  {
+    q: '角色记忆会自动写入吗？',
+    a: '每一幕结束后，MAI 可以把关键事件、关系变化、承诺和印象整理成角色记忆。你可以在封幕检查时确认和编辑这些记忆。',
+  },
+  {
+    q: '数据保存在本地吗？',
+    a: '是的。MAI 默认使用 SQLite 本地存储，你的故事、角色和讨论记录都在本地，不会上传到云端。',
+  },
+  {
+    q: '大陆用户如何下载？',
+    a: '官网会自动同步 GitHub Release，并优先提供适合大陆访问的镜像下载入口。如果镜像暂不可用，也会保留 GitHub 原始下载链接。',
+  },
+  {
+    q: '如何参与开源贡献？',
+    a: 'MAI 是一个开源项目，欢迎在 GitHub 上提交 Issue 和 Pull Request。访问 github.com/Astroite/MAI 了解更多信息。',
+  },
+];
+---
+
+<section class="faq" id="faq">
+  <div class="faq__inner">
+    <SectionHeader
+      title="常见问题"
+    />
+
+    <div class="faq__list">
+      {faqs.map((f, i) => (
+        <details class="faq__item" {...(i === 0 ? { open: true } : {})}>
+          <summary class="faq__q">{f.q}</summary>
+          <p class="faq__a">{f.a}</p>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .faq {
+    padding: 5rem 0;
+    background: var(--mai-surface);
+  }
+
+  .faq__inner {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .faq__list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .faq__item {
+    border-bottom: 1px solid var(--mai-border);
+  }
+
+  .faq__q {
+    padding: 1.1rem 0;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--mai-text);
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .faq__q::after {
+    content: '+';
+    font-size: 1.2rem;
+    color: var(--mai-text-soft);
+    transition: transform 0.2s;
+    flex-shrink: 0;
+    margin-left: 1rem;
+  }
+
+  .faq__item[open] .faq__q::after {
+    content: '\2212';
+  }
+
+  .faq__q::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq__a {
+    padding-bottom: 1.1rem;
+    font-size: 0.9rem;
+    color: var(--mai-text-muted);
+    line-height: 1.7;
+  }
+</style>

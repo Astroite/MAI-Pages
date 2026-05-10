@@ -1,0 +1,253 @@
+---
+import Button from '../ui/Button.astro';
+import { GITHUB_URL } from '../../lib/constants';
+---
+
+<section class="hero">
+  <div class="hero__glow" aria-hidden="true"></div>
+  <div class="hero__inner">
+    <div class="hero__content">
+      <h1 class="hero__title">让 AI 角色活在同一个世界里</h1>
+      <p class="hero__subtitle">
+        MAI 是一个本地优先的 AI 故事导演台。创建世界，召唤角色，开启场景，让多个 AI 角色持续互动、积累记忆，并在你的掌控下推动故事发展。
+      </p>
+      <p class="hero__note">
+        也可以用于多模型讨论、产品决策、方案评审和复杂问题推演。
+      </p>
+      <div class="hero__actions">
+        <Button href="#download" size="lg">立即下载</Button>
+        <Button href={GITHUB_URL} variant="outline" size="lg" target="_blank" rel="noopener noreferrer">
+          查看 GitHub
+        </Button>
+      </div>
+    </div>
+    <div class="hero__mockup" aria-hidden="true">
+      <div class="mockup">
+        <div class="mockup__sidebar">
+          <div class="mockup__dot"></div>
+          <div class="mockup__line"></div>
+          <div class="mockup__line mockup__line--short"></div>
+          <div class="mockup__line"></div>
+          <div class="mockup__line mockup__line--short"></div>
+        </div>
+        <div class="mockup__main">
+          <div class="mockup__header">
+            <div class="mockup__dot mockup__dot--sm"></div>
+            <div class="mockup__dot mockup__dot--sm"></div>
+            <div class="mockup__dot mockup__dot--sm"></div>
+          </div>
+          <div class="mockup__chat">
+            <div class="mockup__bubble mockup__bubble--a">夜色降临，古老的钟楼传来低沉的钟声……</div>
+            <div class="mockup__bubble mockup__bubble--b">「谁在那里？」守夜人握紧了手中的提灯。</div>
+            <div class="mockup__bubble mockup__bubble--c">「别紧张，是我。」旅人从阴影中走出。</div>
+          </div>
+        </div>
+        <div class="mockup__panel">
+          <div class="mockup__dot mockup__dot--sm"></div>
+          <div class="mockup__line mockup__line--short"></div>
+          <div class="mockup__dot mockup__dot--sm"></div>
+          <div class="mockup__line"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    overflow: hidden;
+    padding: 5rem 0 4rem;
+  }
+
+  .hero__glow {
+    position: absolute;
+    top: -120px;
+    right: -120px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, var(--mai-blue-soft) 0%, transparent 70%);
+    opacity: 0.6;
+    pointer-events: none;
+  }
+
+  .hero__inner {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+  }
+
+  .hero__content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .hero__title {
+    font-size: 2.6rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--mai-text);
+    margin-bottom: 1.2rem;
+  }
+
+  .hero__subtitle {
+    font-size: 1.1rem;
+    color: var(--mai-text-muted);
+    line-height: 1.7;
+    margin-bottom: 0.6rem;
+    max-width: 520px;
+  }
+
+  .hero__note {
+    font-size: 0.9rem;
+    color: var(--mai-text-soft);
+    margin-bottom: 2rem;
+  }
+
+  .hero__actions {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .hero__mockup {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  /* CSS App Mockup */
+  .mockup {
+    background: var(--mai-surface);
+    border: 1px solid var(--mai-border);
+    border-radius: var(--mai-radius-lg);
+    box-shadow: var(--mai-shadow-card);
+    display: flex;
+    width: 100%;
+    max-width: 420px;
+    height: 280px;
+    overflow: hidden;
+  }
+
+  .mockup__sidebar {
+    width: 90px;
+    background: var(--mai-surface-soft);
+    border-right: 1px solid var(--mai-border);
+    padding: 1rem 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .mockup__main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mockup__header {
+    padding: 0.6rem 0.75rem;
+    border-bottom: 1px solid var(--mai-border);
+    display: flex;
+    gap: 0.4rem;
+  }
+
+  .mockup__chat {
+    flex: 1;
+    padding: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    overflow: hidden;
+  }
+
+  .mockup__bubble {
+    padding: 0.5rem 0.7rem;
+    border-radius: var(--mai-radius-sm);
+    font-size: 0.65rem;
+    line-height: 1.5;
+    max-width: 85%;
+  }
+
+  .mockup__bubble--a {
+    background: var(--mai-mint-soft);
+    color: var(--mai-mint-strong);
+    align-self: flex-start;
+  }
+
+  .mockup__bubble--b {
+    background: var(--mai-blue-soft);
+    color: #2a7fa8;
+    align-self: flex-end;
+  }
+
+  .mockup__bubble--c {
+    background: var(--mai-coral-soft);
+    color: #c44a3a;
+    align-self: flex-start;
+  }
+
+  .mockup__panel {
+    width: 80px;
+    border-left: 1px solid var(--mai-border);
+    padding: 1rem 0.6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .mockup__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--mai-mint);
+  }
+
+  .mockup__dot--sm {
+    width: 6px;
+    height: 6px;
+    background: var(--mai-border);
+  }
+
+  .mockup__line {
+    height: 6px;
+    background: var(--mai-border);
+    border-radius: 3px;
+    opacity: 0.6;
+  }
+
+  .mockup__line--short {
+    width: 60%;
+  }
+
+  @media (max-width: 768px) {
+    .hero__inner {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .hero__title {
+      font-size: 2rem;
+    }
+
+    .hero__subtitle {
+      max-width: 100%;
+    }
+
+    .hero__actions {
+      justify-content: center;
+    }
+
+    .hero__mockup {
+      width: 100%;
+    }
+
+    .mockup {
+      height: 220px;
+    }
+  }
+</style>

@@ -1,0 +1,26 @@
+:root {
+  --mai-bg: #f8fcfd;
+  --mai-surface: #ffffff;
+  --mai-surface-soft: #eefafa;
+  --mai-border: #d7eef0;
+
+  --mai-mint: #16a69a;
+  --mai-mint-strong: #07887f;
+  --mai-mint-soft: #dff7f4;
+
+  --mai-blue: #62bfe5;
+  --mai-blue-soft: #e6f6fc;
+
+  --mai-coral: #f26b5b;
+  --mai-coral-soft: #fff0ed;
+
+  --mai-text: #10212b;
+  --mai-text-muted: #5d7280;
+  --mai-text-soft: #8aa0aa;
+
+  --mai-shadow-card: 0 12px 30px rgba(28, 110, 120, 0.08);
+  --mai-shadow-sm: 0 2px 8px rgba(28, 110, 120, 0.06);
+  --mai-radius: 8px;
+  --mai-radius-lg: 12px;
+  --mai-radius-sm: 6px;
+}

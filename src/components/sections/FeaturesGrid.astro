@@ -1,0 +1,55 @@
+---
+import SectionHeader from '../ui/SectionHeader.astro';
+import FeatureCard from '../ui/FeatureCard.astro';
+import { features } from '../../data/features';
+
+const iconSvgs: Record<string, string> = {
+  globe: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>',
+  brain: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"/><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"/><path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4"/><path d="M17.599 6.5a3 3 0 0 0 .399-1.375"/><path d="M6.003 5.125A3 3 0 0 0 6.401 6.5"/><path d="M3.477 10.896a4 4 0 0 1 .585-.396"/><path d="M19.938 10.5a4 4 0 0 1 .585.396"/><path d="M6 18a4 4 0 0 1-1.967-.516"/><path d="M19.967 17.484A4 4 0 0 1 18 18"/></svg>',
+  users: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>',
+  'messages-square': '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2z"/><path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1"/></svg>',
+  layers: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></svg>',
+  'clipboard-list': '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4"/><path d="M12 16h4"/><path d="M8 11h.01"/><path d="M8 16h.01"/></svg>',
+  'hard-drive': '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" x2="2" y1="12" y2="12"/><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/><line x1="6" x2="6.01" y1="16" y2="16"/><line x1="10" x2="10.01" y1="16" y2="16"/></svg>',
+  puzzle: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15.39 4.39a1 1 0 0 0 .61.22 2.5 2.5 0 0 1 0 5 1 1 0 0 0-1 1v3a1 1 0 0 0 1 1 2.5 2.5 0 0 1 0 5 1 1 0 0 0-.61.22l-3 2a1 1 0 0 1-1.27-.2A2.5 2.5 0 0 1 13 18.5a1 1 0 0 0-1-1h-3a1 1 0 0 0-1 1 2.5 2.5 0 0 1-5 0 1 1 0 0 0-.22-.61l-2-3a1 1 0 0 1 .2-1.27A2.5 2.5 0 0 1 3.5 11a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1 2.5 2.5 0 0 1 0-5A1 1 0 0 0 4.11.39l3-2a1 1 0 0 1 1.27.2A2.5 2.5 0 0 1 11 3.5a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1 2.5 2.5 0 0 1 5 0 1 1 0 0 0 .22.61l2 3a1 1 0 0 1-.2 1.27A2.5 2.5 0 0 1 20.5 11a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1 2.5 2.5 0 0 1 0 5 1 1 0 0 0-.22.61"/></svg>',
+};
+---
+
+<section class="fg" id="features">
+  <div class="fg__inner">
+    <SectionHeader
+      title="核心功能"
+      subtitle="从故事创作到多模型协作，MAI 提供完整的本地优先 AI 工作台体验。"
+    />
+
+    <div class="fg__grid">
+      {features.map((f, i) => (
+        <FeatureCard
+          icon={iconSvgs[f.icon] || iconSvgs.globe}
+          title={f.title}
+          description={f.description}
+          color={i % 2 === 0 ? 'mint' : 'blue'}
+        />
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .fg {
+    padding: 5rem 0;
+    background: var(--mai-surface);
+  }
+
+  .fg__inner {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .fg__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1rem;
+  }
+</style>

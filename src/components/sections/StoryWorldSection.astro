@@ -1,0 +1,112 @@
+---
+import SectionHeader from '../ui/SectionHeader.astro';
+
+const points = [
+  { label: '世界', desc: '承载世界观、背景、时间线', icon: '🌍' },
+  { label: '场景', desc: '每一幕都是一个可控制的房间', icon: '🎬' },
+  { label: '角色', desc: 'AI 角色和用户角色共存', icon: '👤' },
+  { label: '记忆', desc: '角色拥有跨场景记忆', icon: '🧠' },
+  { label: '封幕检查', desc: '封幕后检查和整理记忆', icon: '📋' },
+];
+---
+
+<section class="sw" id="story-world">
+  <div class="sw__inner">
+    <SectionHeader
+      title="从一次对话，到一个持续发展的故事世界"
+      subtitle="Story World 把单次房间扩展成一个世界。世界包含设定、角色、场景和跨场景记忆。每一幕结束后，MAI 会把关键事件、关系变化、承诺和印象整理成角色记忆，让下一幕从过去继续。"
+    />
+
+    <div class="sw__cards">
+      {points.map((p, i) => (
+        <div class:list={['sw__card', i % 2 === 0 ? 'sw__card--mint' : 'sw__card--blue']}>
+          <span class="sw__card-icon">{p.icon}</span>
+          <h3 class="sw__card-title">{p.label}</h3>
+          <p class="sw__card-desc">{p.desc}</p>
+        </div>
+      ))}
+    </div>
+
+    <div class="sw__highlights">
+      <span class="sw__tag">世界不是一次性设定</span>
+      <span class="sw__tag">角色不是一次性 NPC</span>
+      <span class="sw__tag">每一幕都能沉淀为记忆</span>
+    </div>
+  </div>
+</section>
+
+<style>
+  .sw {
+    padding: 5rem 0;
+  }
+
+  .sw__inner {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .sw__cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .sw__card {
+    background: var(--mai-surface);
+    border: 1px solid var(--mai-border);
+    border-radius: var(--mai-radius);
+    padding: 1.25rem;
+    text-align: center;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+
+  .sw__card:hover {
+    box-shadow: var(--mai-shadow-card);
+    transform: translateY(-2px);
+  }
+
+  .sw__card-icon {
+    font-size: 1.6rem;
+    display: block;
+    margin-bottom: 0.6rem;
+  }
+
+  .sw__card-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--mai-text);
+    margin-bottom: 0.3rem;
+  }
+
+  .sw__card-desc {
+    font-size: 0.82rem;
+    color: var(--mai-text-muted);
+    line-height: 1.5;
+  }
+
+  .sw__card--mint {
+    border-top: 2px solid var(--mai-mint);
+  }
+
+  .sw__card--blue {
+    border-top: 2px solid var(--mai-blue);
+  }
+
+  .sw__highlights {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .sw__tag {
+    background: var(--mai-mint-soft);
+    color: var(--mai-mint-strong);
+    padding: 0.4rem 1rem;
+    border-radius: 999px;
+    font-size: 0.82rem;
+    font-weight: 500;
+  }
+</style>

@@ -1,0 +1,109 @@
+---
+import { navItems } from '../../data/nav';
+import { GITHUB_URL } from '../../lib/constants';
+---
+
+<header class="header">
+  <div class="header__inner">
+    <a href="/" class="header__logo">
+      <span class="header__logo-mark">M</span>
+      <span class="header__logo-text">MAI</span>
+    </a>
+
+    <nav class="header__nav" aria-label="主导航">
+      {navItems.map((item) => (
+        <a
+          href={item.href}
+          class="header__nav-link"
+          {...(item.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+        >
+          {item.label}
+        </a>
+      ))}
+    </nav>
+
+    <a href="#download" class="header__cta">下载 MAI</a>
+  </div>
+</header>
+
+<style>
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(248, 252, 253, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--mai-border);
+  }
+
+  .header__inner {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .header__logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: var(--mai-text);
+    font-weight: 700;
+    font-size: 1.1rem;
+  }
+
+  .header__logo-mark {
+    width: 30px;
+    height: 30px;
+    background: var(--mai-mint);
+    color: #fff;
+    border-radius: var(--mai-radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    font-weight: 700;
+  }
+
+  .header__nav {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .header__nav-link {
+    font-size: 0.9rem;
+    color: var(--mai-text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .header__nav-link:hover {
+    color: var(--mai-mint);
+  }
+
+  .header__cta {
+    background: var(--mai-mint);
+    color: #fff;
+    padding: 0.45rem 1.1rem;
+    border-radius: var(--mai-radius);
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+
+  .header__cta:hover {
+    background: var(--mai-mint-strong);
+    color: #fff;
+  }
+
+  @media (max-width: 768px) {
+    .header__nav {
+      display: none;
+    }
+  }
+</style>
