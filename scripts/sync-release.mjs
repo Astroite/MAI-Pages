@@ -7,6 +7,7 @@ const OUTPUT_PATH = resolve(__dirname, '../src/data/releases.generated.json');
 
 const repo = process.env.MAI_REPO || 'Astroite/MAI';
 const token = process.env.GITHUB_TOKEN;
+const COS_BASE_URL = process.env.COS_BASE_URL || 'https://agent-mai-1255740528.cos.accelerate.myqcloud.com';
 
 function inferPlatform(filename) {
   const lower = filename.toLowerCase();
@@ -19,6 +20,13 @@ function inferPlatform(filename) {
   if (lower.endsWith('.tar.gz') || lower.endsWith('.zip') || lower.endsWith('.tar'))
     return 'source';
   return 'unknown';
+}
+
+function isDownloadableBinary(name) {
+  const lower = name.toLowerCase();
+  return lower.endsWith('.exe') || lower.endsWith('.msi') || lower.endsWith('.dmg')
+    || lower.endsWith('.pkg') || lower.endsWith('.appimage') || lower.endsWith('.deb')
+    || lower.endsWith('.rpm');
 }
 
 async function main() {
@@ -52,7 +60,7 @@ async function main() {
       size: asset.size,
       downloadCount: asset.download_count,
       githubUrl: asset.browser_download_url,
-      mirrorUrl: '',
+      mirrorUrl: isDownloadableBinary(asset.name) ? `${COS_BASE_URL}/${asset.name}` : '',
       platform: inferPlatform(asset.name),
     })),
     syncedAt: new Date().toISOString(),

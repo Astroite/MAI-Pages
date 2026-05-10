@@ -34,7 +34,7 @@
       "size": 52115983,
       "downloadCount": 5,
       "githubUrl": "https://github.com/Astroite/MAI/releases/download/v0.6.0/MAI_0.6.0_x64-setup.exe",
-      "mirrorUrl": "",
+      "mirrorUrl": "https://agent-mai-1255740528.cos.accelerate.myqcloud.com/MAI_0.6.0_x64-setup.exe",
       "platform": "windows"
     },
     {
