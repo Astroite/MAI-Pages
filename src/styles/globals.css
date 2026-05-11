@@ -51,6 +51,11 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
 }
 
+html[lang="en"] .i18n-zh,
+html:not([lang="en"]) .i18n-en {
+  display: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

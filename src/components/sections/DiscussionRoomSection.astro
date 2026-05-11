@@ -1,25 +1,26 @@
 ---
 import SectionHeader from '../ui/SectionHeader.astro';
+import Lang from '../ui/Lang.astro';
 
 const capabilities = [
-  { icon: '🤖', label: '多模型 / 多人设协作' },
-  { icon: '📋', label: '阶段模板' },
-  { icon: '🏆', label: '赛制' },
-  { icon: '🧪', label: '配方' },
-  { icon: '📝', label: '书记官 Scribe' },
-  { icon: '🎙️', label: '主持 Facilitator' },
-  { icon: '⚖️', label: '裁决 Judge' },
-  { icon: '🔀', label: '子讨论' },
-  { icon: '🔧', label: '工具与 MCP' },
-  { icon: '📖', label: 'Append-only 可追溯记录' },
+  { icon: '🤖', zh: '多模型 / 多人设协作', en: 'Multi-model / multi-persona collaboration' },
+  { icon: '📋', zh: '阶段模板', en: 'Phase templates' },
+  { icon: '🏆', zh: '赛制', en: 'Tournament formats' },
+  { icon: '🧪', zh: '配方', en: 'Recipes' },
+  { icon: '📝', zh: '书记官 Scribe', en: 'Scribe' },
+  { icon: '🎙️', zh: '主持 Facilitator', en: 'Facilitator' },
+  { icon: '⚖️', zh: '裁决 Judge', en: 'Judge' },
+  { icon: '🔀', zh: '子讨论', en: 'Sub-discussions' },
+  { icon: '🔧', zh: '工具与 MCP', en: 'Tools & MCP' },
+  { icon: '📖', zh: 'Append-only 可追溯记录', en: 'Append-only, auditable transcript' },
 ];
 
 const scenarios = [
-  '技术方案评审',
-  '产品决策圆桌',
-  '发散头脑风暴',
-  '假设压力测试',
-  '角色原型访谈',
+  { zh: '技术方案评审', en: 'Technical design review' },
+  { zh: '产品决策圆桌', en: 'Product decision roundtable' },
+  { zh: '发散头脑风暴', en: 'Divergent brainstorming' },
+  { zh: '假设压力测试', en: 'Stress-testing assumptions' },
+  { zh: '角色原型访谈', en: 'Persona prototype interviews' },
 ];
 ---
 
@@ -27,7 +28,9 @@ const scenarios = [
   <div class="dr__inner">
     <SectionHeader
       title="当你需要判断，不只问一个 AI"
+      titleEn="When you need a judgment, don't ask just one AI"
       subtitle="MAI 的讨论室让多个 AI 人设进入同一个问题现场。它们共享上下文，按阶段和赛制发言、质询、反驳和总结。用户始终拥有冻结、推进、裁决和配置模型的最终控制权。"
+      subtitleEn="The Discussion Room brings several AI personas into the same problem space. They share context and move through phases and formats — speaking, questioning, pushing back, and concluding. You keep the final say: freeze, advance, rule, and swap models at will."
     />
 
     <div class="dr__layout">
@@ -35,16 +38,22 @@ const scenarios = [
         {capabilities.map((c) => (
           <div class="dr__cap">
             <span class="dr__cap-icon">{c.icon}</span>
-            <span class="dr__cap-label">{c.label}</span>
+            <span class="dr__cap-label">
+              <Lang zh={c.zh} en={c.en} />
+            </span>
           </div>
         ))}
       </div>
 
       <div class="dr__scenarios">
-        <h3 class="dr__scenarios-title">适用场景</h3>
+        <h3 class="dr__scenarios-title">
+          <Lang zh="适用场景" en="Use cases" />
+        </h3>
         <div class="dr__scenario-list">
           {scenarios.map((s) => (
-            <span class="dr__scenario-tag">{s}</span>
+            <span class="dr__scenario-tag">
+              <Lang zh={s.zh} en={s.en} />
+            </span>
           ))}
         </div>
       </div>

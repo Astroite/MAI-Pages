@@ -19,7 +19,9 @@ const iconSvgs: Record<string, string> = {
   <div class="fg__inner">
     <SectionHeader
       title="核心功能"
+      titleEn="Core features"
       subtitle="从故事创作到多模型协作，MAI 提供完整的本地优先 AI 工作台体验。"
+      subtitleEn="From storywriting to multi-model collaboration, MAI gives you a complete local-first AI workbench."
     />
 
     <div class="fg__grid">
@@ -27,7 +29,9 @@ const iconSvgs: Record<string, string> = {
         <FeatureCard
           icon={iconSvgs[f.icon] || iconSvgs.globe}
           title={f.title}
+          titleEn={f.titleEn}
           description={f.description}
+          descriptionEn={f.descriptionEn}
           color={i % 2 === 0 ? 'mint' : 'blue'}
         />
       ))}

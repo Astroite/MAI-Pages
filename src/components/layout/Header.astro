@@ -1,6 +1,8 @@
 ---
 import { navItems } from '../../data/nav';
 import { GITHUB_URL } from '../../lib/constants';
+import Lang from '../ui/Lang.astro';
+import LangToggle from './LangToggle.astro';
 ---
 
 <header class="header">
@@ -10,19 +12,30 @@ import { GITHUB_URL } from '../../lib/constants';
       <span class="header__logo-text">MAI</span>
     </a>
 
-    <nav class="header__nav" aria-label="主导航">
+    <nav
+      class="header__nav"
+      aria-label="主导航"
+      data-i18n-aria
+      data-aria-zh="主导航"
+      data-aria-en="Primary navigation"
+    >
       {navItems.map((item) => (
         <a
           href={item.href}
           class="header__nav-link"
           {...(item.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
         >
-          {item.label}
+          <Lang zh={item.label} en={item.labelEn} />
         </a>
       ))}
     </nav>
 
-    <a href="#download" class="header__cta">下载 MAI</a>
+    <div class="header__actions">
+      <LangToggle />
+      <a href="#download" class="header__cta">
+        <Lang zh="下载 MAI" en="Download MAI" />
+      </a>
+    </div>
   </div>
 </header>
 
@@ -44,6 +57,7 @@ import { GITHUB_URL } from '../../lib/constants';
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 1rem;
   }
 
   .header__logo {
@@ -83,6 +97,12 @@ import { GITHUB_URL } from '../../lib/constants';
 
   .header__nav-link:hover {
     color: var(--mai-mint);
+  }
+
+  .header__actions {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
   }
 
   .header__cta {

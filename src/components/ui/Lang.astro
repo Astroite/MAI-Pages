@@ -1,0 +1,14 @@
+---
+type Props = {
+  zh: string;
+  en: string;
+  as?: string;
+  class?: string;
+};
+
+const { zh, en, as: Tag = 'span', class: className = '' } = Astro.props as Props;
+---
+
+<Tag class:list={[className]}>
+  <span class="i18n-zh">{zh}</span><span class="i18n-en">{en}</span>
+</Tag>

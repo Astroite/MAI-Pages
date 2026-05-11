@@ -1,0 +1,68 @@
+---
+---
+
+<button type="button" class="lang-toggle" data-lang-toggle aria-label="Toggle language">
+  <span class="lang-toggle__icon" aria-hidden="true">
+    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/>
+      <path d="M2 12h20"/>
+      <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/>
+    </svg>
+  </span>
+  <span class="i18n-zh">EN</span><span class="i18n-en">中</span>
+</button>
+
+<script is:inline>
+  (function () {
+    function applyLang(lang) {
+      document.documentElement.lang = lang;
+      try { localStorage.setItem('mai-lang', lang); } catch (e) {}
+      var titleEl = document.querySelector('title[data-i18n]');
+      if (titleEl) {
+        var v = titleEl.getAttribute(lang === 'en' ? 'data-en' : 'data-zh');
+        if (v) document.title = v;
+      }
+      document.querySelectorAll('meta[data-i18n]').forEach(function (m) {
+        var v = m.getAttribute(lang === 'en' ? 'data-en' : 'data-zh');
+        if (v) m.setAttribute('content', v);
+      });
+      document.querySelectorAll('[data-i18n-aria]').forEach(function (el) {
+        var v = el.getAttribute(lang === 'en' ? 'data-aria-en' : 'data-aria-zh');
+        if (v) el.setAttribute('aria-label', v);
+      });
+    }
+    document.querySelectorAll('[data-lang-toggle]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var cur = document.documentElement.lang === 'en' ? 'en' : 'zh-CN';
+        applyLang(cur === 'en' ? 'zh-CN' : 'en');
+      });
+    });
+  })();
+</script>
+
+<style>
+  .lang-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.4rem 0.7rem;
+    border-radius: var(--mai-radius);
+    border: 1px solid var(--mai-border);
+    background: var(--mai-surface);
+    color: var(--mai-text-muted);
+    font-size: 0.82rem;
+    font-weight: 500;
+    transition: color 0.2s, border-color 0.2s, background 0.2s;
+  }
+
+  .lang-toggle:hover {
+    color: var(--mai-mint);
+    border-color: var(--mai-mint);
+    background: var(--mai-mint-soft);
+  }
+
+  .lang-toggle__icon {
+    display: inline-flex;
+    align-items: center;
+  }
+</style>

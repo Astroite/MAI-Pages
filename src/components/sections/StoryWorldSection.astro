@@ -1,12 +1,13 @@
 ---
 import SectionHeader from '../ui/SectionHeader.astro';
+import Lang from '../ui/Lang.astro';
 
 const points = [
-  { label: '世界', desc: '承载世界观、背景、时间线', icon: '🌍' },
-  { label: '场景', desc: '每一幕都是一个可控制的房间', icon: '🎬' },
-  { label: '角色', desc: 'AI 角色和用户角色共存', icon: '👤' },
-  { label: '记忆', desc: '角色拥有跨场景记忆', icon: '🧠' },
-  { label: '封幕检查', desc: '封幕后检查和整理记忆', icon: '📋' },
+  { label: '世界', labelEn: 'World', desc: '承载世界观、背景、时间线', descEn: 'Holds the worldview, lore and timeline', icon: '🌍' },
+  { label: '场景', labelEn: 'Scene', desc: '每一幕都是一个可控制的房间', descEn: 'Every act is a room you can direct', icon: '🎬' },
+  { label: '角色', labelEn: 'Character', desc: 'AI 角色和用户角色共存', descEn: 'AI characters and player characters share the stage', icon: '👤' },
+  { label: '记忆', labelEn: 'Memory', desc: '角色拥有跨场景记忆', descEn: 'Characters carry memory across scenes', icon: '🧠' },
+  { label: '封幕检查', labelEn: 'Scene Review', desc: '封幕后检查和整理记忆', descEn: 'Review and curate memory once the act ends', icon: '📋' },
 ];
 ---
 
@@ -14,23 +15,35 @@ const points = [
   <div class="sw__inner">
     <SectionHeader
       title="从一次对话，到一个持续发展的故事世界"
+      titleEn="From a single chat to a story world that keeps unfolding"
       subtitle="Story World 把单次房间扩展成一个世界。世界包含设定、角色、场景和跨场景记忆。每一幕结束后，MAI 会把关键事件、关系变化、承诺和印象整理成角色记忆，让下一幕从过去继续。"
+      subtitleEn="Story World turns a one-shot chat room into a living world — settings, characters, scenes and cross-scene memory. When an act closes, MAI distills the key events, relationship shifts, promises and impressions into character memory so the next act picks up where the last one left off."
     />
 
     <div class="sw__cards">
       {points.map((p, i) => (
         <div class:list={['sw__card', i % 2 === 0 ? 'sw__card--mint' : 'sw__card--blue']}>
           <span class="sw__card-icon">{p.icon}</span>
-          <h3 class="sw__card-title">{p.label}</h3>
-          <p class="sw__card-desc">{p.desc}</p>
+          <h3 class="sw__card-title">
+            <Lang zh={p.label} en={p.labelEn} />
+          </h3>
+          <p class="sw__card-desc">
+            <Lang zh={p.desc} en={p.descEn} />
+          </p>
         </div>
       ))}
     </div>
 
     <div class="sw__highlights">
-      <span class="sw__tag">世界不是一次性设定</span>
-      <span class="sw__tag">角色不是一次性 NPC</span>
-      <span class="sw__tag">每一幕都能沉淀为记忆</span>
+      <span class="sw__tag">
+        <Lang zh="世界不是一次性设定" en="The world is not a one-shot setup" />
+      </span>
+      <span class="sw__tag">
+        <Lang zh="角色不是一次性 NPC" en="Characters are not throwaway NPCs" />
+      </span>
+      <span class="sw__tag">
+        <Lang zh="每一幕都能沉淀为记忆" en="Every act settles into memory" />
+      </span>
     </div>
   </div>
 </section>

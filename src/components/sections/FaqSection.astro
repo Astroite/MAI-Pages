@@ -1,38 +1,55 @@
 ---
 import SectionHeader from '../ui/SectionHeader.astro';
+import Lang from '../ui/Lang.astro';
 
 const faqs = [
   {
     q: 'MAI 是在线服务吗？',
+    qEn: 'Is MAI an online service?',
     a: '不是。MAI 是一个本地优先的应用，你可以在自己的电脑上运行，数据默认存储在本地 SQLite 中。',
+    aEn: 'No. MAI is a local-first application. You run it on your own computer and data lives in a local SQLite database by default.',
   },
   {
     q: 'MAI 支持哪些模型？',
+    qEn: 'Which models does MAI support?',
     a: 'MAI 支持 OpenAI、Anthropic、Gemini、OpenRouter 等主流模型供应商，也可以通过 LiteLLM 接入自定义模型。',
+    aEn: 'MAI works with major providers — OpenAI, Anthropic, Gemini, OpenRouter — and you can plug in custom models through LiteLLM.',
   },
   {
     q: '故事世界和普通讨论室有什么区别？',
+    qEn: 'How is Story World different from the Discussion Room?',
     a: '故事世界专注于持续性的叙事创作，拥有世界观、角色、场景和跨场景记忆；讨论室则用于多模型协作讨论、方案评审和决策推演。',
+    aEn: 'Story World is built for continuous narrative work — worldview, characters, scenes, cross-scene memory. The Discussion Room is for multi-model collaboration: reviews, decisions, and reasoning together.',
   },
   {
     q: 'AI 会不会替其他角色说话？',
+    qEn: 'Will an AI speak for other characters?',
     a: '在故事模式中，每个 AI 只扮演自己的角色，说自己的台词，描述自己的动作，不会替其他角色发言，也不会变成全知旁白。',
+    aEn: 'In Story Mode each AI plays only itself — its own lines, its own actions. It does not speak for others and will not turn into an omniscient narrator.',
   },
   {
     q: '角色记忆会自动写入吗？',
+    qEn: 'Is character memory written automatically?',
     a: '每一幕结束后，MAI 可以把关键事件、关系变化、承诺和印象整理成角色记忆。你可以在封幕检查时确认和编辑这些记忆。',
+    aEn: 'When an act ends, MAI can distill key events, relationship shifts, promises and impressions into character memory. You can review and edit them at the scene-close checkpoint.',
   },
   {
     q: '数据保存在本地吗？',
+    qEn: 'Is my data stored locally?',
     a: '是的。MAI 默认使用 SQLite 本地存储，你的故事、角色和讨论记录都在本地，不会上传到云端。',
+    aEn: 'Yes. MAI uses a local SQLite store by default — your stories, characters and transcripts stay on your machine and are not uploaded to the cloud.',
   },
   {
     q: '大陆用户如何下载？',
+    qEn: 'How do users in mainland China download MAI?',
     a: '官网会自动同步 GitHub Release，并优先提供适合大陆访问的镜像下载入口。如果镜像暂不可用，也会保留 GitHub 原始下载链接。',
+    aEn: 'The site auto-syncs from GitHub Releases and offers a mirror download optimized for access from mainland China, with the original GitHub link kept as fallback.',
   },
   {
     q: '如何参与开源贡献？',
+    qEn: 'How can I contribute to the open-source project?',
     a: 'MAI 是一个开源项目，欢迎在 GitHub 上提交 Issue 和 Pull Request。访问 github.com/Astroite/MAI 了解更多信息。',
+    aEn: 'MAI is open-source — issues and pull requests are welcome on GitHub. Head to github.com/Astroite/MAI for the details.',
   },
 ];
 ---
@@ -41,13 +58,18 @@ const faqs = [
   <div class="faq__inner">
     <SectionHeader
       title="常见问题"
+      titleEn="FAQ"
     />
 
     <div class="faq__list">
       {faqs.map((f, i) => (
         <details class="faq__item" {...(i === 0 ? { open: true } : {})}>
-          <summary class="faq__q">{f.q}</summary>
-          <p class="faq__a">{f.a}</p>
+          <summary class="faq__q">
+            <Lang zh={f.q} en={f.qEn} />
+          </summary>
+          <p class="faq__a">
+            <Lang zh={f.a} en={f.aEn} />
+          </p>
         </details>
       ))}
     </div>

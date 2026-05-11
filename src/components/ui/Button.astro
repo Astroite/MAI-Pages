@@ -4,16 +4,18 @@ interface Props {
   variant?: 'primary' | 'outline' | 'ghost';
   size?: 'sm' | 'md' | 'lg';
   target?: string;
+  rel?: string;
   class?: string;
 }
 
-const { href, variant = 'primary', size = 'md', target, class: className = '' } = Astro.props;
+const { href, variant = 'primary', size = 'md', target, rel, class: className = '' } = Astro.props;
 const Tag = href ? 'a' : 'button';
 ---
 
 <Tag
   href={href}
   target={target}
+  rel={rel}
   class:list={['btn', `btn--${variant}`, `btn--${size}`, className]}
 >
   <slot />

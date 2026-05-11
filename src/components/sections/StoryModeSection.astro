@@ -1,13 +1,14 @@
 ---
 import SectionHeader from '../ui/SectionHeader.astro';
+import Lang from '../ui/Lang.astro';
 
 const points = [
-  '多角色持续接力',
-  '用户可随时喊停',
-  'AI 保持角色身份',
-  '用户可以作为导演旁白',
-  '用户也可以扮演自己的角色入场',
-  '支持沉默、试探、冲突、承诺等自然互动',
+  { zh: '多角色持续接力', en: 'Multiple characters take the relay' },
+  { zh: '用户可随时喊停', en: 'You can call cut at any moment' },
+  { zh: 'AI 保持角色身份', en: 'AI stays in character' },
+  { zh: '用户可以作为导演旁白', en: 'You can step in as director or narrator' },
+  { zh: '用户也可以扮演自己的角色入场', en: 'You can also play your own character on stage' },
+  { zh: '支持沉默、试探、冲突、承诺等自然互动', en: 'Silence, probing, conflict, promises — interactions feel natural' },
 ];
 ---
 
@@ -15,7 +16,9 @@ const points = [
   <div class="sm__inner">
     <SectionHeader
       title="不是让 AI 续写，而是让角色共同演出"
+      titleEn="Not AI continuing your text — characters performing together"
       subtitle="在故事模式中，每个 AI 只扮演自己。它会说自己的台词，描述自己的动作，保持自己的身份和关系，不替其他角色发言，也不会变成全知旁白。"
+      subtitleEn="In Story Mode each AI plays only itself: it speaks its own lines, describes its own actions, holds its own identity and relationships, and never speaks for the others or slips into an omniscient narrator."
     />
 
     <div class="sm__grid">
@@ -23,23 +26,40 @@ const points = [
         {points.map((p) => (
           <div class="sm__item">
             <span class="sm__check">&#10003;</span>
-            <span>{p}</span>
+            <span>
+              <Lang zh={p.zh} en={p.en} />
+            </span>
           </div>
         ))}
       </div>
       <div class="sm__visual">
         <div class="chat-demo">
           <div class="chat-demo__msg chat-demo__msg--ranger">
-            <span class="chat-demo__name" style="color: var(--mai-mint);">游侠</span>
-            「我听见林中有动静。你们留在这里，我去看看。」
+            <span class="chat-demo__name" style="color: var(--mai-mint);">
+              <Lang zh="游侠" en="Ranger" />
+            </span>
+            <Lang
+              zh="「我听见林中有动静。你们留在这里，我去看看。」"
+              en={`"Something's moving in the woods. Stay here — I'll check."`}
+            />
           </div>
           <div class="chat-demo__msg chat-demo__msg--mage">
-            <span class="chat-demo__name" style="color: var(--mai-blue);">法师</span>
-            「等等，让我先施一个侦测术。」
+            <span class="chat-demo__name" style="color: var(--mai-blue);">
+              <Lang zh="法师" en="Mage" />
+            </span>
+            <Lang
+              zh="「等等，让我先施一个侦测术。」"
+              en={`"Wait — let me cast detect first."`}
+            />
           </div>
           <div class="chat-demo__msg chat-demo__msg--narrator">
-            <span class="chat-demo__name" style="color: var(--mai-coral);">旁白</span>
-            魔法的光芒在林间扩散，隐约照出一个身影。
+            <span class="chat-demo__name" style="color: var(--mai-coral);">
+              <Lang zh="旁白" en="Narrator" />
+            </span>
+            <Lang
+              zh="魔法的光芒在林间扩散，隐约照出一个身影。"
+              en="Arcane light spreads through the trees, sketching out a figure in the dark."
+            />
           </div>
         </div>
       </div>

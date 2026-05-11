@@ -2,14 +2,16 @@
 import '../../styles/globals.css';
 import Header from './Header.astro';
 import Footer from './Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION, SITE_URL } from '../../lib/constants';
+import { SITE_TITLE_ZH, SITE_TITLE_EN, SITE_DESCRIPTION_ZH, SITE_DESCRIPTION_EN, SITE_URL } from '../../lib/constants';
 
 interface Props {
   title?: string;
   description?: string;
 }
 
-const { title = SITE_TITLE, description = SITE_DESCRIPTION } = Astro.props;
+const { title = SITE_TITLE_ZH, description = SITE_DESCRIPTION_ZH } = Astro.props;
+const titleEn = SITE_TITLE_EN;
+const descriptionEn = SITE_DESCRIPTION_EN;
 ---
 
 <!doctype html>
@@ -17,18 +19,38 @@ const { title = SITE_TITLE, description = SITE_DESCRIPTION } = Astro.props;
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content={description} />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
+    <meta name="description" content={description} data-i18n data-zh={description} data-en={descriptionEn} />
+    <meta property="og:title" content={title} data-i18n data-zh={title} data-en={titleEn} />
+    <meta property="og:description" content={description} data-i18n data-zh={description} data-en={descriptionEn} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={SITE_URL} />
     <meta property="og:image" content={`${SITE_URL}/og/og-cover.png`} />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
+    <meta name="twitter:title" content={title} data-i18n data-zh={title} data-en={titleEn} />
+    <meta name="twitter:description" content={description} data-i18n data-zh={description} data-en={descriptionEn} />
     <link rel="canonical" href={SITE_URL} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>{title}</title>
+    <title data-i18n data-zh={title} data-en={titleEn}>{title}</title>
+    <script is:inline>
+      (function () {
+        try {
+          var stored = localStorage.getItem('mai-lang');
+          var lang = stored === 'en' ? 'en' : 'zh-CN';
+          document.documentElement.lang = lang;
+          if (lang === 'en') {
+            var t = document.querySelector('title[data-i18n]');
+            if (t) {
+              var ev = t.getAttribute('data-en');
+              if (ev) document.title = ev;
+            }
+            document.querySelectorAll('meta[data-i18n]').forEach(function (m) {
+              var v = m.getAttribute('data-en');
+              if (v) m.setAttribute('content', v);
+            });
+          }
+        } catch (e) {}
+      })();
+    </script>
   </head>
   <body>
     <Header />

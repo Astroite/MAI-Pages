@@ -1,5 +1,6 @@
 ---
 import Button from '../ui/Button.astro';
+import Lang from '../ui/Lang.astro';
 import { GITHUB_URL } from '../../lib/constants';
 ---
 
@@ -7,17 +8,30 @@ import { GITHUB_URL } from '../../lib/constants';
   <div class="hero__glow" aria-hidden="true"></div>
   <div class="hero__inner">
     <div class="hero__content">
-      <h1 class="hero__title">让 AI 角色活在同一个世界里</h1>
+      <h1 class="hero__title">
+        <Lang
+          zh="让 AI 角色活在同一个世界里"
+          en="Let AI characters live in the same world"
+        />
+      </h1>
       <p class="hero__subtitle">
-        MAI 是一个本地优先的 AI 故事导演台。创建世界，召唤角色，开启场景，让多个 AI 角色持续互动、积累记忆，并在你的掌控下推动故事发展。
+        <Lang
+          zh="MAI 是一个本地优先的 AI 故事导演台。创建世界，召唤角色，开启场景，让多个 AI 角色持续互动、积累记忆，并在你的掌控下推动故事发展。"
+          en="MAI is a local-first AI story director. Build a world, summon characters, open a scene, and let multiple AI roles interact, accumulate memory, and move the story forward under your direction."
+        />
       </p>
       <p class="hero__note">
-        也可以用于多模型讨论、产品决策、方案评审和复杂问题推演。
+        <Lang
+          zh="也可以用于多模型讨论、产品决策、方案评审和复杂问题推演。"
+          en="It also runs multi-model discussions, product decisions, design reviews, and reasoning about hard problems."
+        />
       </p>
       <div class="hero__actions">
-        <Button href="#download" size="lg">立即下载</Button>
+        <Button href="#download" size="lg">
+          <Lang zh="立即下载" en="Download now" />
+        </Button>
         <Button href={GITHUB_URL} variant="outline" size="lg" target="_blank" rel="noopener noreferrer">
-          查看 GitHub
+          <Lang zh="查看 GitHub" en="View on GitHub" />
         </Button>
       </div>
     </div>
@@ -37,9 +51,24 @@ import { GITHUB_URL } from '../../lib/constants';
             <div class="mockup__dot mockup__dot--sm"></div>
           </div>
           <div class="mockup__chat">
-            <div class="mockup__bubble mockup__bubble--a">夜色降临，古老的钟楼传来低沉的钟声……</div>
-            <div class="mockup__bubble mockup__bubble--b">「谁在那里？」守夜人握紧了手中的提灯。</div>
-            <div class="mockup__bubble mockup__bubble--c">「别紧张，是我。」旅人从阴影中走出。</div>
+            <div class="mockup__bubble mockup__bubble--a">
+              <Lang
+                zh="夜色降临，古老的钟楼传来低沉的钟声……"
+                en="Night falls. A low toll drifts from the old bell tower…"
+              />
+            </div>
+            <div class="mockup__bubble mockup__bubble--b">
+              <Lang
+                zh="「谁在那里？」守夜人握紧了手中的提灯。"
+                en={`"Who's there?" The night watchman tightens his grip on the lantern.`}
+              />
+            </div>
+            <div class="mockup__bubble mockup__bubble--c">
+              <Lang
+                zh="「别紧张，是我。」旅人从阴影中走出。"
+                en={`"Easy — it's me." The traveler steps out of the shadows.`}
+              />
+            </div>
           </div>
         </div>
         <div class="mockup__panel">

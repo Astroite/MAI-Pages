@@ -2,17 +2,31 @@
 interface Props {
   icon: string;
   title: string;
+  titleEn?: string;
   description: string;
+  descriptionEn?: string;
   color?: 'mint' | 'blue';
 }
 
-const { icon, title, description, color = 'mint' } = Astro.props;
+const { icon, title, titleEn, description, descriptionEn, color = 'mint' } = Astro.props;
 ---
 
 <div class:list={['feature-card', `feature-card--${color}`]}>
   <div class="feature-card__icon" set:html={icon} />
-  <h3 class="feature-card__title">{title}</h3>
-  <p class="feature-card__desc">{description}</p>
+  <h3 class="feature-card__title">
+    {titleEn ? (
+      <>
+        <span class="i18n-zh">{title}</span><span class="i18n-en">{titleEn}</span>
+      </>
+    ) : title}
+  </h3>
+  <p class="feature-card__desc">
+    {descriptionEn ? (
+      <>
+        <span class="i18n-zh">{description}</span><span class="i18n-en">{descriptionEn}</span>
+      </>
+    ) : description}
+  </p>
 </div>
 
 <style>

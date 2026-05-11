@@ -1,17 +1,22 @@
 ---
 import { GITHUB_URL } from '../../lib/constants';
+import Lang from '../ui/Lang.astro';
 ---
 
 <footer class="footer">
   <div class="footer__inner">
     <div class="footer__brand">
       <span class="footer__logo">MAI</span>
-      <p class="footer__tagline">本地优先的 AI 故事导演台</p>
+      <p class="footer__tagline">
+        <Lang zh="本地优先的 AI 故事导演台" en="Local-first AI story director" />
+      </p>
     </div>
     <div class="footer__links">
       <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer">GitHub</a>
       <a href={GITHUB_URL + '/releases'} target="_blank" rel="noopener noreferrer">Releases</a>
-      <a href="#download">下载</a>
+      <a href="#download">
+        <Lang zh="下载" en="Download" />
+      </a>
     </div>
     <p class="footer__copy">
       &copy; {new Date().getFullYear()} MAI &middot; Apache License 2.0

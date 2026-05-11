@@ -1,15 +1,16 @@
 ---
 import SectionHeader from '../ui/SectionHeader.astro';
 import Button from '../ui/Button.astro';
+import Lang from '../ui/Lang.astro';
 import { GITHUB_URL } from '../../lib/constants';
 
 const points = [
-  '本地运行，无需云端账号',
-  'SQLite 默认数据存储',
-  '可配置模型 Provider 和 API Key',
-  '支持 OpenAI、Anthropic、Gemini、OpenRouter 等',
-  '开源仓库，社区可参与',
-  '适合高阶用户与创作者长期使用',
+  { zh: '本地运行，无需云端账号', en: 'Runs locally — no cloud account required' },
+  { zh: 'SQLite 默认数据存储', en: 'SQLite as the default data store' },
+  { zh: '可配置模型 Provider 和 API Key', en: 'Configure your own model providers and API keys' },
+  { zh: '支持 OpenAI、Anthropic、Gemini、OpenRouter 等', en: 'Works with OpenAI, Anthropic, Gemini, OpenRouter, and more' },
+  { zh: '开源仓库，社区可参与', en: 'Open-source repository, community-friendly' },
+  { zh: '适合高阶用户与创作者长期使用', en: 'Built for power users and creators who stick around' },
 ];
 ---
 
@@ -17,7 +18,9 @@ const points = [
   <div class="os__inner">
     <SectionHeader
       title="本地优先，开源可控"
+      titleEn="Local-first, open-source, under your control"
       subtitle="MAI 以本地优先为核心。你可以在自己的环境中运行、配置模型 Provider 和 API Key，并根据需要选择不同模型供应商或兼容 LiteLLM 的自定义模型。"
+      subtitleEn="MAI puts local first. Run it in your own environment, plug in your own model providers and API keys, and switch between vendors or any LiteLLM-compatible custom model whenever you need."
     />
 
     <div class="os__content">
@@ -25,13 +28,15 @@ const points = [
         {points.map((p) => (
           <div class="os__point">
             <span class="os__check">&#10003;</span>
-            <span>{p}</span>
+            <span>
+              <Lang zh={p.zh} en={p.en} />
+            </span>
           </div>
         ))}
       </div>
       <div class="os__cta">
         <Button href={GITHUB_URL} variant="outline" size="lg" target="_blank" rel="noopener noreferrer">
-          查看 GitHub 仓库
+          <Lang zh="查看 GitHub 仓库" en="Open the GitHub repository" />
         </Button>
       </div>
     </div>
