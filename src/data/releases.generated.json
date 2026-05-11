@@ -8,7 +8,7 @@
     {
       "name": "latest.json",
       "size": 698,
-      "downloadCount": 0,
+      "downloadCount": 1,
       "githubUrl": "https://github.com/Astroite/MAI/releases/download/v0.6.4/latest.json",
       "mirrorUrl": "",
       "platform": "unknown"
@@ -54,5 +54,5 @@
       "platform": "unknown"
     }
   ],
-  "syncedAt": "2026-05-11T16:43:05.812Z"
+  "syncedAt": "2026-05-11T19:29:24.478Z"
 }
