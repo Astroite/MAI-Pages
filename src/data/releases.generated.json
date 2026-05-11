@@ -1,47 +1,47 @@
 {
-  "version": "v0.6.3",
-  "name": "MAI v0.6.3",
-  "publishedAt": "2026-05-11T11:07:04Z",
-  "htmlUrl": "https://github.com/Astroite/MAI/releases/tag/v0.6.3",
-  "body": "**Full Changelog**: https://github.com/Astroite/MAI/compare/v0.5.6...v0.6.3",
+  "version": "v0.6.4",
+  "name": "v0.6.4",
+  "publishedAt": "2026-05-11T16:29:03Z",
+  "htmlUrl": "https://github.com/Astroite/MAI/releases/tag/v0.6.4",
+  "body": "## 更新内容\n\n- 合入大规模重构迭代：稳定运行时、流式状态、模板页、桌面诊断和兼容边界文档。\n- 修复故事模式暂停逻辑：暂停会等待当前角色说完，再阻止后续自动接力。\n- 修复故事场景封幕后仍可交互的问题：封幕后房间进入只读历史模式，后端写入口和前端交互入口同步锁定。\n- 整理项目文档结构：归档过时设计稿，新增 docs 索引与重构问题记录，并更新 README。\n\n## 验证\n\n- backend/tests/test_scenes.py: 6 passed\n- pnpm build: passed",
   "assets": [
     {
       "name": "latest.json",
       "size": 698,
       "downloadCount": 0,
-      "githubUrl": "https://github.com/Astroite/MAI/releases/download/v0.6.3/latest.json",
+      "githubUrl": "https://github.com/Astroite/MAI/releases/download/v0.6.4/latest.json",
       "mirrorUrl": "",
       "platform": "unknown"
     },
     {
-      "name": "mai-v0.6.3.tar.gz",
-      "size": 13389394,
+      "name": "mai-v0.6.4.tar.gz",
+      "size": 13421767,
       "downloadCount": 0,
-      "githubUrl": "https://github.com/Astroite/MAI/releases/download/v0.6.3/mai-v0.6.3.tar.gz",
+      "githubUrl": "https://github.com/Astroite/MAI/releases/download/v0.6.4/mai-v0.6.4.tar.gz",
       "mirrorUrl": "",
       "platform": "source"
     },
     {
-      "name": "mai-v0.6.3.zip",
-      "size": 13486537,
+      "name": "mai-v0.6.4.zip",
+      "size": 13528700,
       "downloadCount": 0,
-      "githubUrl": "https://github.com/Astroite/MAI/releases/download/v0.6.3/mai-v0.6.3.zip",
+      "githubUrl": "https://github.com/Astroite/MAI/releases/download/v0.6.4/mai-v0.6.4.zip",
       "mirrorUrl": "",
       "platform": "source"
     },
     {
-      "name": "MAI_0.6.3_x64-setup.exe",
-      "size": 52126559,
+      "name": "MAI_0.6.4_x64-setup.exe",
+      "size": 52161026,
       "downloadCount": 0,
-      "githubUrl": "https://github.com/Astroite/MAI/releases/download/v0.6.3/MAI_0.6.3_x64-setup.exe",
-      "mirrorUrl": "https://agent-mai-1255740528.cos.accelerate.myqcloud.com/releases/v0.6.3/MAI_0.6.3_x64-setup.exe",
+      "githubUrl": "https://github.com/Astroite/MAI/releases/download/v0.6.4/MAI_0.6.4_x64-setup.exe",
+      "mirrorUrl": "https://agent-mai-1255740528.cos.accelerate.myqcloud.com/releases/v0.6.4/MAI_0.6.4_x64-setup.exe",
       "platform": "windows"
     },
     {
-      "name": "MAI_0.6.3_x64-setup.exe.sig",
+      "name": "MAI_0.6.4_x64-setup.exe.sig",
       "size": 412,
       "downloadCount": 0,
-      "githubUrl": "https://github.com/Astroite/MAI/releases/download/v0.6.3/MAI_0.6.3_x64-setup.exe.sig",
+      "githubUrl": "https://github.com/Astroite/MAI/releases/download/v0.6.4/MAI_0.6.4_x64-setup.exe.sig",
       "mirrorUrl": "",
       "platform": "windows"
     },
@@ -49,10 +49,10 @@
       "name": "SHA256SUMS.txt",
       "size": 165,
       "downloadCount": 0,
-      "githubUrl": "https://github.com/Astroite/MAI/releases/download/v0.6.3/SHA256SUMS.txt",
+      "githubUrl": "https://github.com/Astroite/MAI/releases/download/v0.6.4/SHA256SUMS.txt",
       "mirrorUrl": "",
       "platform": "unknown"
     }
   ],
-  "syncedAt": "2026-05-11T14:32:34.238Z"
+  "syncedAt": "2026-05-11T16:43:05.812Z"
 }
