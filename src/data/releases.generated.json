@@ -40,7 +40,7 @@
     {
       "name": "MAI_0.6.2_x64-setup.exe.sig",
       "size": 412,
-      "downloadCount": 1,
+      "downloadCount": 2,
       "githubUrl": "https://github.com/Astroite/MAI/releases/download/v0.6.2/MAI_0.6.2_x64-setup.exe.sig",
       "mirrorUrl": "",
       "platform": "windows"
@@ -54,5 +54,5 @@
       "platform": "unknown"
     }
   ],
-  "syncedAt": "2026-05-10T18:50:29.903Z"
+  "syncedAt": "2026-05-11T02:28:45.536Z"
 }
