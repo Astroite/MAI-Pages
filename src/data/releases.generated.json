@@ -1,47 +1,47 @@
 {
-  "version": "v0.6.2",
-  "name": "MAI v0.6.2",
-  "publishedAt": "2026-05-10T10:13:06Z",
-  "htmlUrl": "https://github.com/Astroite/MAI/releases/tag/v0.6.2",
-  "body": "**Full Changelog**: https://github.com/Astroite/MAI/compare/v0.6.1...v0.6.2",
+  "version": "v0.6.3",
+  "name": "MAI v0.6.3",
+  "publishedAt": "2026-05-11T11:07:04Z",
+  "htmlUrl": "https://github.com/Astroite/MAI/releases/tag/v0.6.3",
+  "body": "**Full Changelog**: https://github.com/Astroite/MAI/compare/v0.5.6...v0.6.3",
   "assets": [
     {
       "name": "latest.json",
       "size": 698,
-      "downloadCount": 1,
-      "githubUrl": "https://github.com/Astroite/MAI/releases/download/v0.6.2/latest.json",
+      "downloadCount": 0,
+      "githubUrl": "https://github.com/Astroite/MAI/releases/download/v0.6.3/latest.json",
       "mirrorUrl": "",
       "platform": "unknown"
     },
     {
-      "name": "mai-v0.6.2.tar.gz",
-      "size": 13382436,
+      "name": "mai-v0.6.3.tar.gz",
+      "size": 13389394,
       "downloadCount": 0,
-      "githubUrl": "https://github.com/Astroite/MAI/releases/download/v0.6.2/mai-v0.6.2.tar.gz",
+      "githubUrl": "https://github.com/Astroite/MAI/releases/download/v0.6.3/mai-v0.6.3.tar.gz",
       "mirrorUrl": "",
       "platform": "source"
     },
     {
-      "name": "mai-v0.6.2.zip",
-      "size": 13479779,
+      "name": "mai-v0.6.3.zip",
+      "size": 13486537,
       "downloadCount": 0,
-      "githubUrl": "https://github.com/Astroite/MAI/releases/download/v0.6.2/mai-v0.6.2.zip",
+      "githubUrl": "https://github.com/Astroite/MAI/releases/download/v0.6.3/mai-v0.6.3.zip",
       "mirrorUrl": "",
       "platform": "source"
     },
     {
-      "name": "MAI_0.6.2_x64-setup.exe",
-      "size": 52114073,
+      "name": "MAI_0.6.3_x64-setup.exe",
+      "size": 52126559,
       "downloadCount": 0,
-      "githubUrl": "https://github.com/Astroite/MAI/releases/download/v0.6.2/MAI_0.6.2_x64-setup.exe",
-      "mirrorUrl": "https://agent-mai-1255740528.cos.accelerate.myqcloud.com/releases/v0.6.2/MAI_0.6.2_x64-setup.exe",
+      "githubUrl": "https://github.com/Astroite/MAI/releases/download/v0.6.3/MAI_0.6.3_x64-setup.exe",
+      "mirrorUrl": "https://agent-mai-1255740528.cos.accelerate.myqcloud.com/releases/v0.6.3/MAI_0.6.3_x64-setup.exe",
       "platform": "windows"
     },
     {
-      "name": "MAI_0.6.2_x64-setup.exe.sig",
+      "name": "MAI_0.6.3_x64-setup.exe.sig",
       "size": 412,
-      "downloadCount": 2,
-      "githubUrl": "https://github.com/Astroite/MAI/releases/download/v0.6.2/MAI_0.6.2_x64-setup.exe.sig",
+      "downloadCount": 0,
+      "githubUrl": "https://github.com/Astroite/MAI/releases/download/v0.6.3/MAI_0.6.3_x64-setup.exe.sig",
       "mirrorUrl": "",
       "platform": "windows"
     },
@@ -49,7 +49,7 @@
       "name": "SHA256SUMS.txt",
       "size": 165,
       "downloadCount": 0,
-      "githubUrl": "https://github.com/Astroite/MAI/releases/download/v0.6.2/SHA256SUMS.txt",
+      "githubUrl": "https://github.com/Astroite/MAI/releases/download/v0.6.3/SHA256SUMS.txt",
       "mirrorUrl": "",
       "platform": "unknown"
     }
