@@ -16,7 +16,7 @@
     {
       "name": "mai-v0.6.5.tar.gz",
       "size": 13484802,
-      "downloadCount": 0,
+      "downloadCount": 1,
       "githubUrl": "https://github.com/Astroite/MAI/releases/download/v0.6.5/mai-v0.6.5.tar.gz",
       "mirrorUrl": "",
       "platform": "source"
@@ -24,7 +24,7 @@
     {
       "name": "mai-v0.6.5.zip",
       "size": 13596957,
-      "downloadCount": 0,
+      "downloadCount": 1,
       "githubUrl": "https://github.com/Astroite/MAI/releases/download/v0.6.5/mai-v0.6.5.zip",
       "mirrorUrl": "",
       "platform": "source"
@@ -54,5 +54,5 @@
       "platform": "unknown"
     }
   ],
-  "syncedAt": "2026-11-14T04:19:06.077Z"
+  "syncedAt": "2026-11-14T12:46:22.429Z"
 }
